@@ -17,8 +17,8 @@ import config from "@data/config.json";
     <div
       class="flex flex-col text-9xl text-center absolute top-1/2 left-1/2 max-md:-translate-y-[150%] -translate-x-1/2 -translate-y-[75%] w-full text-white z-20 gap-8 max-md:text-6xl max-md:gap-4 font-extrabold max-md:w-11/12 mx-auto"
     >
-      <h1>Strength of Thor</h1>
-      <h1>Heart of home</h1>
+      <h1 class="heroText">Strength of Thor</h1>
+      <h1 class="heroText">Heart of home</h1>
     </div>
 
     <span
@@ -31,12 +31,3 @@ import config from "@data/config.json";
 </Layout>
 
 <script src="../assets/main.js"></script>
-
-<script>
-  import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  const introTimeline = gsap.timeline();
-</script>

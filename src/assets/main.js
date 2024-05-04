@@ -1,6 +1,24 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
+import gsap from "gsap";
+import SplitType from "split-type";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const introTimeline = gsap.timeline({ paused: true, delay: 1 });
+new SplitType(".heroText");
+
+gsap.set(".char", { y: 50, rotateZ: 30, opacity: 0 });
+
+introTimeline.to(".char", {
+  y: 0,
+  rotateZ: 0,
+  opacity: 1,
+  stagger: 0.05,
+});
 
 const scene = new THREE.Scene();
 
@@ -13,6 +31,7 @@ loader.load(
     scene.add(gltf.scene);
 
     document.getElementById("loader").style.display = "none";
+    introTimeline.play();
   },
   undefined,
   function (error) {
