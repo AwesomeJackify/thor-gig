@@ -35,11 +35,11 @@ const camera = new THREE.PerspectiveCamera(
 if (window.innerWidth < 768) {
   camera.position.z = 20;
 } else {
-  camera.position.z = 16;
+  camera.position.z = 14;
 }
 scene.add(camera);
 
-const canvas = document.querySelector(".webgl");
+const canvas = document.querySelector("#mjolnir");
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
   antialias: true,
@@ -58,7 +58,7 @@ function animate() {
   light.position.x = Math.sin(Date.now() * 0.001) * 5;
 
   if (mjolnir) {
-    const yOffset = Math.sin(Date.now() * 0.0005) * 1; // Adjust the multiplier for amplitude
+    const yOffset = Math.sin(Date.now() * 0.001) * 0.5; // Adjust the multiplier for amplitude
     mjolnir.position.y = yOffset;
   }
   // controls.update();

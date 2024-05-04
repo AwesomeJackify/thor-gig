@@ -1,12 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import heroImg from "@images/hero.jpg";
+
+import config from "@data/config.json";
 ---
 
-<Layout title="Welcome to Astro.">
-  <h1 class="text-primary">Hello, Astro!</h1>
+<Layout title={config.businessName}>
+  <section class="flex flex-col relative h-screen overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Hero image"
+      class="object-cover w-full h-full absolute top-0 left-0 -z-10"
+    />
+    <div
+      class="flex flex-col text-9xl text-center absolute top-1/2 left-1/2 max-md:-translate-y-[150%] -translate-x-1/2 -translate-y-[75%] w-full text-white z-10 gap-8 max-md:text-6xl max-md:gap-4 font-extrabold max-md:w-11/12 mx-auto"
+    >
+      <h1>Strength of Thor</h1>
+      <h1>Heart of home</h1>
+    </div>
 
-  <canvas class="webgl"> </canvas>
-  <h1>Hello, Astro!</h1>
+    <canvas id="mjolnir" class="absolute top-[15%] left-0"> </canvas>
+  </section>
 </Layout>
 
 <script src="../assets/main.js"></script>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const introTimeline = gsap.timeline();
+</script>

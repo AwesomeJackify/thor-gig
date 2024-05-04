@@ -7,5 +7,5 @@ export default {
   daisyui: {
     themes: ["cmyk"],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("tailwindcss-fluid-type"), require("daisyui")],
 };
