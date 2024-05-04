@@ -1,0 +1,25 @@
+{
+  "name": "thor-gig",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.7.1",
+    "gsap": "^3.12.5",
+    "tailwindcss": "^3.4.3",
+    "three": "^0.164.1",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/three": "^0.164.0",
+    "daisyui": "^4.10.5"
+  }
+}
