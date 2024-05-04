@@ -11,6 +11,8 @@ loader.load(
   (gltf) => {
     mjolnir = gltf.scene;
     scene.add(gltf.scene);
+
+    document.getElementById("loader").style.display = "none";
   },
   undefined,
   function (error) {
