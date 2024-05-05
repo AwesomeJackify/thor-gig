@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const introTimeline = gsap.timeline({ paused: true, delay: 1 });
 new SplitType(".heroText");
 
-gsap.set(".char", { y: 50, rotateZ: 30, opacity: 0 });
+gsap.set(".char", { y: 50, rotateZ: 5, opacity: 0 });
 
 introTimeline.to(".char", {
   y: 0,

@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import Carousel from "@components/Carousel";
 
 import heroImg from "@images/hero.jpg";
 
@@ -15,7 +18,7 @@ import config from "@data/config.json";
       class="object-cover w-full h-full absolute top-0 left-0 -z-10"
     />
     <div
-      class="flex flex-col text-9xl text-center absolute top-1/2 left-1/2 max-md:-translate-y-[150%] -translate-x-1/2 -translate-y-[75%] w-full text-white z-20 gap-8 max-md:text-6xl max-md:gap-4 font-extrabold max-md:w-11/12 mx-auto"
+      class="flex flex-col text-9xl text-center absolute top-1/2 left-1/2 max-md:-translate-y-[150%] -translate-x-1/2 -translate-y-[75%] w-full text-white z-20 gap-8 max-md:text-6xl max-md:gap-4 max-md:w-11/12 mx-auto"
     >
       <h1 class="heroText">Strength of Thor</h1>
       <h1 class="heroText">Heart of home</h1>
@@ -27,6 +30,29 @@ import config from "@data/config.json";
     ></span>
 
     <canvas id="mjolnir" class="absolute top-[15%] left-0"> </canvas>
+  </section>
+  <section class="grid grid-cols-5 max-w-screen-xl mx-auto gap-16 py-16 px-4">
+    <div class="flex col-span-1 h-fit items-center gap-2">
+      <Icon name="game-icons:thor-hammer" class="text-secondary text-lg" />
+      <h1 class="uppercase text-sm font-bold">My Story</h1>
+    </div>
+    <div class="flex col-span-4 flex-col text-4xl">
+      <p>
+        Matthew Aaron-Fasa Fainuu, a proud Samoan and the cherished local legend
+        of Avondale, launched Thor & Co Building amid the challenges of the
+        COVID-19 pandemic. <br /><br />With a steadfast commitment to his
+        community, Matthew has not only built structures but has also forged
+        strong connections with his clients, significantly enhancing the
+        communal spirit. <br /><br />A devoted family man at heart, he
+        integrates his values of kinship and integrity into every project,
+        striving to strengthen and uplift the neighbourhood one build at a time. <br
+        /><br />His approach goes beyond construction; it's about creating
+        lasting bonds and a resilient community foundation.
+      </p>
+    </div>
+  </section>
+  <section>
+    <Carousel client:only="react" />
   </section>
 </Layout>
 

@@ -11,9 +11,16 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@astrojs/react": "^3.3.2",
     "@astrojs/tailwind": "^5.1.0",
+    "@gsap/react": "^2.1.1",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
     "astro": "^4.7.1",
+    "astro-icon": "^1.1.0",
     "gsap": "^3.12.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "split-type": "^0.3.4",
     "tailwindcss": "^3.4.3",
     "tailwindcss-fluid-type": "^2.0.6",
@@ -21,6 +28,8 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@iconify-json/game-icons": "^1.1.9",
+    "@iconify/react": "^4.1.1",
     "@types/three": "^0.164.0",
     "daisyui": "^4.10.5"
   }
