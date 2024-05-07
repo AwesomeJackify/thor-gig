@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className="py-16">
       <Marquee autoFill>
-        <h1 className="text-9xl uppercase font-bold mx-8">
+        <h1 className="text-9xl overflow-y-hidden uppercase font-bold mx-8">
           {config.businessName}
         </h1>
       </Marquee>
