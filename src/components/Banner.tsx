@@ -6,7 +6,7 @@ import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 const Banner = () => {
   return (
-    <div className="bg-primary py-16">
+    <div className="py-16">
       <Marquee autoFill className="gap-16 max-md:gap-8">
         <h1 className="text-9xl uppercase font-bold text-white">
           {config.businessName}
