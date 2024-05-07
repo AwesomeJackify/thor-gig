@@ -19,7 +19,7 @@ const Carousel = () => {
   const carouselImages = [image1.src, image2.src, image3.src];
 
   const [mainImage, setMainImage] = useState(carouselImages[counter]);
-  const [secondImage, setSecondImage] = useState(carouselImages[counter]);
+  const [prevImage, setprevImage] = useState(carouselImages[counter]);
 
   const { contextSafe } = useGSAP();
 
@@ -101,52 +101,84 @@ const Carousel = () => {
 
   useEffect(() => {
     if (isLeft) {
-      setMainImage(carouselImages[counter]);
+      gsap.set("#prevImg", {
+        left: 0,
+        right: "auto",
+      });
     } else {
-      setMainImage(carouselImages[counter]);
+      gsap.set("#prevImg", {
+        right: 0,
+        left: "auto",
+      });
     }
+
+    gsap.to("#prevImg", {
+      width: "0%",
+      ease: "power2.inOut",
+      onComplete: () => {
+        setprevImage(mainImage);
+      },
+    });
+  }, [mainImage]);
+
+  useEffect(() => {
+    setMainImage(carouselImages[counter]);
   }, [counter]);
 
-  const handleClick = contextSafe((e: any) => {
-    setCounter(
-      (((isLeft ? counter + 1 : counter - 1) % carouselImages.length) +
-        carouselImages.length) %
-        carouselImages.length
-    );
+  const handleClick = contextSafe(() => {
+    gsap.set("#prevImg", {
+      width: "100%",
+      onComplete: () => {
+        setCounter(
+          (((isLeft ? counter + 1 : counter - 1) % carouselImages.length) +
+            carouselImages.length) %
+            carouselImages.length
+        );
+      },
+    });
   });
 
   return (
-    <div
-      ref={wrapperRef}
-      className="w-full h-[500px] overflow-hidden relative"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
-    >
+    <div>
       <div
-        ref={cursorRef}
-        className="w-32 scale-0 opacity-0 aspect-square relative top-0 left-0 z-50 bg-secondary rounded-full flex justify-center items-center"
+        ref={wrapperRef}
+        className="w-full h-[600px] max-md:h-72 overflow-hidden relative max-md:hidden"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
       >
-        <Icon
-          icon="game-icons:thor-hammer"
-          id="thorIcon"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -z-10 -translate-y-1/2 w-[80%] h-[80%] opacity-40"
+        <div
+          ref={cursorRef}
+          className="w-32 scale-0 opacity-0 aspect-square relative top-0 left-0 z-50 bg-secondary rounded-full flex justify-center items-center"
+        >
+          <Icon
+            icon="game-icons:thor-hammer"
+            id="thorIcon"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -z-10 -translate-y-1/2 w-[80%] h-[80%] opacity-40"
+          />
+          <h1 id="cursorText" className="uppercase text-white select-none"></h1>
+        </div>
+        <img
+          id="mainImg"
+          src={mainImage}
+          alt="Carousel"
+          className="w-full h-full object-cover absolute top-0 left-0 select-none"
         />
-        <h1 id="cursorText" className="uppercase text-white select-none"></h1>
+        <img
+          id="prevImg"
+          src={prevImage}
+          alt="Carousel"
+          className="w-full h-full object-cover absolute top-0 z-10 left-0 select-none width-0"
+        />
       </div>
-      <img
-        id="mainImg"
-        src={mainImage}
-        alt="Carousel"
-        className="w-full h-full object-cover absolute top-0 left-0 z-10 select-none"
-      />
-      {/* <img
-        id="secondImg"
-        src={secondImage}
-        alt="Carousel"
-        className="w-full h-full object-cover absolute top-0 left-0"
-      /> */}
+      <div className="carousel carousel-center w-full h-72 md:hidden">
+        {carouselImages.map((image, index) => (
+          <div className="carousel-item" key={index}>
+            <img src={image} alt="Carousel" className="w-full h-full" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
