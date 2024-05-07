@@ -93,47 +93,19 @@ const Carousel = () => {
 
   useEffect(() => {
     if (isLeft) {
-      gsap.set("#mainImg", {
-        left: "0",
-        right: "auto",
-      });
+      setMainImage(carouselImages[counter]);
     } else {
-      gsap.set("#mainImg", {
-        left: "auto",
-        right: "0",
-      });
+      setMainImage(carouselImages[counter]);
     }
-  }, [secondImage]);
+  }, [counter]);
 
   const handleClick = contextSafe((e: any) => {
-    if (isLeft) {
-      setSecondImage(
-        carouselImages[
-          (((counter - 1) % carouselImages.length) + carouselImages.length) %
-            carouselImages.length
-        ]
-      );
-    } else {
-      setSecondImage(
-        carouselImages[
-          (((counter + 1) % carouselImages.length) + carouselImages.length) %
-            carouselImages.length
-        ]
-      );
-    }
-
-    gsap.to("#mainImg", {
-      duration: 1,
-      ease: "power2.inOut",
-      width: "0%",
-    });
+    setCounter(
+      (((isLeft ? counter + 1 : counter - 1) % carouselImages.length) +
+        carouselImages.length) %
+        carouselImages.length
+    );
   });
-
-  useEffect(() => {
-    gsap.set("#mainImg", {
-      width: "100%",
-    });
-  }, [mainImage]);
 
   return (
     <div
@@ -146,7 +118,7 @@ const Carousel = () => {
     >
       <div
         ref={cursorRef}
-        className="w-32 scale-0 opacity-0 aspect-square relative top-0 left-0 z-50 bg-secondary rounded-full flex justify-center items-center"
+        className="w-32 scale-0 opacity-0 aspect-square relative top-0 left-0 z-50 bg-secondary rounded-full flex justify-center items-center pointer-events-none"
       >
         <Icon
           icon="game-icons:thor-hammer"
@@ -161,12 +133,12 @@ const Carousel = () => {
         alt="Carousel"
         className="w-full h-full object-cover absolute top-0 left-0 z-10"
       />
-      <img
+      {/* <img
         id="secondImg"
         src={secondImage}
         alt="Carousel"
         className="w-full h-full object-cover absolute top-0 left-0"
-      />
+      /> */}
     </div>
   );
 };

@@ -27,8 +27,6 @@ loader.load(
 
     document.getElementById("loader").style.display = "none";
 
-    console.log(mjolnir);
-
     introTimeline
       .to(".char", {
         y: 0,
