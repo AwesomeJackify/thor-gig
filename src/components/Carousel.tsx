@@ -126,6 +126,17 @@ const Carousel = () => {
   }, [counter]);
 
   const handleClick = contextSafe(() => {
+    const clickTimeline = gsap.timeline();
+    clickTimeline.fromTo(
+      cursorRef.current,
+      {
+        scale: 0.8,
+      },
+      {
+        scale: 1,
+      }
+    );
+
     gsap.set("#prevImg", {
       width: "100%",
       onComplete: () => {
