@@ -8,22 +8,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const introTimeline = gsap.timeline({ paused: true, delay: 1 });
+const introTimeline = gsap.timeline({ delay: 1 });
 new SplitType(".heroText");
 
-gsap.set(".char", { y: 50, rotateZ: 5, opacity: 0 });
+gsap.set(".char", { y: 50, rotateZ: 15, opacity: 0 });
 
-introTimeline.to(".char", {
-  y: 0,
-  rotateZ: 0,
-  opacity: 1,
-  stagger: 0.05,
-});
+let mjolnir;
 
 const scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
-let mjolnir;
+
 loader.load(
   "/models/mjolnir/scene.gltf",
   (gltf) => {
@@ -31,7 +26,29 @@ loader.load(
     scene.add(gltf.scene);
 
     document.getElementById("loader").style.display = "none";
-    introTimeline.play();
+
+    console.log(mjolnir);
+
+    introTimeline
+      .to(".char", {
+        y: 0,
+        rotateZ: 0,
+        opacity: 1,
+        stagger: 0.05,
+      })
+      .from("#mjolnir", {
+        y: "100%",
+        duration: 1,
+      })
+      .to(
+        mjolnir.rotation,
+        {
+          y: Math.PI * 2,
+          duration: 4,
+          ease: "power2.out",
+        },
+        "<"
+      );
   },
   undefined,
   function (error) {
