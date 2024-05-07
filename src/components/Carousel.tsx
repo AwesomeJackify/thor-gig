@@ -139,7 +139,7 @@ const Carousel = () => {
   });
 
   return (
-    <div>
+    <div className="flex">
       <div
         ref={wrapperRef}
         className="w-full h-[600px] max-md:h-72 overflow-hidden relative max-md:hidden"
