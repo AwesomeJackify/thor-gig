@@ -11,14 +11,16 @@ gsap.registerPlugin(ScrollTrigger);
 const introTimeline = gsap.timeline({ delay: 1 });
 new SplitType(".heroText");
 
-gsap.set(".char", { y: 50, rotateZ: 15, opacity: 0 });
-
-gsap.to(".char", {
-  y: 0,
-  rotateZ: 0,
-  opacity: 1,
-  stagger: 0.05,
-});
+gsap.fromTo(
+  ".char",
+  { y: 50, rotateZ: 15, opacity: 0 },
+  {
+    y: 0,
+    rotateZ: 0,
+    opacity: 1,
+    stagger: 0.05,
+  }
+);
 
 let mjolnir;
 
