@@ -1,3 +1,20 @@
 {
-  "businessName": "Thor & Co Building"
+  "businessName": "Thor & Co Building",
+  "socials": [
+    {
+      "name": "email",
+      "icon": "mdi:email",
+      "url": "mailto:matfainuu@gmail.com"
+    },
+    {
+      "name": "phone",
+      "icon": "mdi:phone",
+      "url": "tel:+640211088932"
+    },
+    {
+      "name": "instagram",
+      "icon": "mdi:instagram",
+      "url": "https://www.instagram.com/thor_n_co_buildingltd/"
+    }
+  ]
 }

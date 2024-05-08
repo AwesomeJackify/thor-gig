@@ -93,9 +93,83 @@ import config from "@data/config.json";
   <section>
     <Carousel client:only="react" />
   </section>
+  <section
+    id="contact"
+    class="flex flex-col gap-16 py-16 max-w-screen-lg mx-auto px-2"
+  >
+    <h1 class="text-9xl uppercase font-extrabold text-center">Let's Talk</h1>
+    <div class="flex flex-col gap-5 items-center">
+      <p class="text-center italic text-2xl">
+        via my phone number: <span
+          ><a
+            class="link link-primary"
+            href={config.socials.filter((social) => social.name == "phone")[0]
+              .url}
+          >
+            {
+              config.socials
+                .filter((social) => social.name == "phone")[0]
+                .url.split("+64")[1]
+            }</a
+          ></span
+        >
+      </p>
+      <p class="text-center text-2xl italic">or via the form below</p>
+    </div>
+
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      class="bg-primary p-8 rounded-2xl py-12 flex flex-col gap-2"
+    >
+      <label for="fname" class="text-white">First name</label>
+      <input
+        autocomplete="on"
+        type="text"
+        id="fname"
+        class="form-input px-4 py-3 w-full rounded bg-stone-100"
+      />
+      <label for="lname" class="text-white">Last name</label>
+      <input
+        autocomplete="on"
+        type="text"
+        id="lname"
+        class="form-input px-4 py-3 w-full rounded bg-stone-100"
+      />
+      <label for="email" class="text-white">Email</label>
+      <input
+        autocomplete="on"
+        type="email"
+        id="email"
+        class="form-input px-4 py-3 w-full rounded bg-stone-100"
+      />
+      <label for="message" class="text-white">Message</label>
+      <textarea
+        name="message"
+        id="message"
+        class="form-input px-4 py-3 rounded w-full bg-stone-100"
+        cols="30"
+        rows="10"></textarea>
+      <div class="flex w-full justify-center my-6">
+        <input type="submit" value="Submit" class="btn btn-secondary" />
+      </div>
+    </form>
+  </section>
   <footer class="flex flex-col bg-primary text-white py-8">
     <Banner client:only="react" />
-    <div class="flex justify-between px-4">
+    <ul class="menu menu-horizontal mx-auto mb-8 max-md:mb-4">
+      {
+        config.socials.map((social: any) => (
+          <li>
+            <a href={social.url} target="_blank" aria-label={social.label}>
+              <Icon name={social.icon} class="text-2xl" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex justify-between px-4 max-md:flex-col max-md:items-center">
       <h1>@ {config.businessName}. All rights reserved.</h1>
 
       <h1 class="flex items-center gap-1 max-md:self-center">
