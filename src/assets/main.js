@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import gsap from "gsap";
 import SplitType from "split-type";
@@ -18,21 +17,10 @@ let mjolnir;
 
 const scene = new THREE.Scene();
 
-const dLoader = new DRACOLoader();
-
-// Specify path to a folder containing WASM/JS decoding libraries.
-dLoader.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
-
-dLoader.setDecoderConfig({ type: "js" });
-
-// Optional: Pre-fetch Draco WASM/JS module.
-dLoader.preload();
-
 const loader = new GLTFLoader();
-loader.setDRACOLoader(dLoader);
 
 loader.load(
-  "/models/mjolnir/sceneDraco.gltf",
+  "/models/mjolnir/scene.gltf",
   (gltf) => {
     mjolnir = gltf.scene;
     scene.add(gltf.scene);
