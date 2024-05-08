@@ -13,6 +13,13 @@ new SplitType(".heroText");
 
 gsap.set(".char", { y: 50, rotateZ: 15, opacity: 0 });
 
+gsap.to(".char", {
+  y: 0,
+  rotateZ: 0,
+  opacity: 1,
+  stagger: 0.05,
+});
+
 let mjolnir;
 
 const scene = new THREE.Scene();
@@ -25,15 +32,9 @@ loader.load(
     mjolnir = gltf.scene;
     scene.add(gltf.scene);
 
-    document.getElementById("loader").style.display = "none";
+    // document.getElementById("loader").style.display = "none";
 
     introTimeline
-      .to(".char", {
-        y: 0,
-        rotateZ: 0,
-        opacity: 1,
-        stagger: 0.05,
-      })
       .from("#mjolnir", {
         y: "100%",
         duration: 1,
