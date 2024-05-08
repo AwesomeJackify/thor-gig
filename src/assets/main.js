@@ -14,6 +14,9 @@ new SplitType(".heroText");
 const heroTextTimeline = gsap.timeline();
 
 heroTextTimeline
+  .set("#loader", {
+    display: "none",
+  })
   .to(".heroText", {
     opacity: 1,
   })
