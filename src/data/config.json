@@ -1,5 +1,23 @@
 {
   "businessName": "Thor & Co Building",
+  "pages": [
+    {
+      "name": "Home",
+      "url": "#"
+    },
+    {
+      "name": "My Story",
+      "url": "#story"
+    },
+    {
+      "name": "Services",
+      "url": "#services"
+    },
+    {
+      "name": "Contact",
+      "url": "#contact"
+    }
+  ],
   "socials": [
     {
       "name": "email",

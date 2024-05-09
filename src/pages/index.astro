@@ -6,6 +6,7 @@ import { Icon } from "astro-icon/components";
 
 import Carousel from "@components/Carousel";
 import Banner from "@components/Banner";
+import Nav from "@components/Nav";
 
 import heroImg from "@images/hero.jpg";
 import image1 from "../assets/images/hero.jpg";
@@ -23,6 +24,7 @@ import config from "@data/config.json";
       alt="Hero image"
       class="object-cover w-full h-full absolute top-0 left-0 -z-10"
     />
+    <Nav client:only="react" />
     <div
       class="flex flex-col text-9xl text-center absolute top-1/2 left-1/2 max-md:-translate-y-[150%] -translate-x-1/2 -translate-y-[75%] w-full text-white z-20 gap-8 max-md:text-6xl max-md:gap-4 max-md:w-11/12 mx-auto"
     >
@@ -39,6 +41,7 @@ import config from "@data/config.json";
     <canvas id="mjolnir" class="absolute top-[15%] left-0"> </canvas>
   </section>
   <section
+    id="story"
     class="grid grid-cols-5 max-md:grid-cols-1 max-md:gap-8 max-w-screen-xl mx-auto gap-16 py-16 px-4"
   >
     <div class="flex col-span-1 h-fit items-center gap-2">
@@ -76,6 +79,7 @@ import config from "@data/config.json";
     </div>
   </section>
   <section
+    id="services"
     class="grid grid-cols-5 max-md:grid-cols-1 max-md:gap-8 max-w-screen-xl mx-auto gap-16 py-16 px-4"
   >
     <div class="flex col-span-1 h-fit items-center gap-2">
@@ -128,6 +132,7 @@ import config from "@data/config.json";
         autocomplete="on"
         type="text"
         id="fname"
+        name="firstname"
         class="form-input px-4 py-3 w-full rounded bg-stone-100"
       />
       <label for="lname" class="text-white">Last name</label>
@@ -135,6 +140,7 @@ import config from "@data/config.json";
         autocomplete="on"
         type="text"
         id="lname"
+        name="lastname"
         class="form-input px-4 py-3 w-full rounded bg-stone-100"
       />
       <label for="email" class="text-white">Email</label>
@@ -142,6 +148,7 @@ import config from "@data/config.json";
         autocomplete="on"
         type="email"
         id="email"
+        name="email"
         class="form-input px-4 py-3 w-full rounded bg-stone-100"
       />
       <label for="message" class="text-white">Message</label>
@@ -156,7 +163,7 @@ import config from "@data/config.json";
       </div>
     </form>
   </section>
-  <footer class="flex flex-col bg-primary text-white py-8">
+  <footer class="flex flex-col bg-primary text-white py-8 max-md:pb-24">
     <Banner client:only="react" />
     <ul class="menu menu-horizontal mx-auto mb-8 max-md:mb-4">
       {
