@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import image1 from "../assets/images/hero.jpg";
-import image2 from "../assets/images/facial.jpeg";
-import image3 from "../assets/images/heroBG.jpeg";
+import roofImg from "../assets/images/carousel/roof.png";
+import fenceImg from "../assets/images/carousel/fence.png";
+import stairsImg from "../assets/images/carousel/stairs.jpg";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -16,7 +16,7 @@ const Carousel = () => {
   const [isLeft, setIsLeft] = useState(false);
   const [counter, setCounter] = useState(0);
 
-  const carouselImages = [image1.src, image2.src, image3.src];
+  const carouselImages = [roofImg.src, fenceImg.src, stairsImg.src];
 
   const [mainImage, setMainImage] = useState(carouselImages[counter]);
   const [prevImage, setprevImage] = useState(carouselImages[counter]);
@@ -141,7 +141,7 @@ const Carousel = () => {
       width: "100%",
       onComplete: () => {
         setCounter(
-          (((isLeft ? counter + 1 : counter - 1) % carouselImages.length) +
+          (((isLeft ? counter - 1 : counter + 1) % carouselImages.length) +
             carouselImages.length) %
             carouselImages.length
         );
@@ -161,7 +161,7 @@ const Carousel = () => {
       >
         <div
           ref={cursorRef}
-          className="w-32 scale-0 opacity-0 aspect-square relative top-0 left-0 z-50 bg-secondary rounded-full flex justify-center items-center"
+          className="w-32 scale-0 opacity-0 aspect-square relative top-0 left-0 z-50 bg-secondary rounded-full flex flex-col justify-center items-center"
         >
           <Icon
             icon="game-icons:thor-hammer"
@@ -169,6 +169,9 @@ const Carousel = () => {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -z-10 -translate-y-1/2 w-[80%] h-[80%] opacity-40"
           />
           <h1 id="cursorText" className="uppercase text-white select-none"></h1>
+          <h1 className="text-white text-xs">
+            {counter + 1} / {carouselImages.length}
+          </h1>
         </div>
         <img
           id="mainImg"
