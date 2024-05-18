@@ -83,7 +83,7 @@ const difference = currentYear - 2020;
       />
       <h1
         id="localLegend"
-        class="text-center font-[yellowTail] uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-16 max-md:right-8 opacity-0"
+        class="text-center font-[yellowTail] max-md:text-primary uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-16 max-md:right-8 opacity-0"
       >
         Local Legend of <br /> Avondale!
       </h1>
@@ -192,7 +192,7 @@ const difference = currentYear - 2020;
   </section>
   <section
     id="services"
-    class="grid grid-cols-5 max-md:grid-cols-1 max-md:gap-8 max-w-screen-xl mx-auto gap-16 py-16 px-4"
+    class="grid grid-cols-5 max-md:grid-cols-1 max-md:gap-8 max-w-screen-xl mx-auto gap-16 pb-16 px-4"
   >
     <div class="flex col-span-1 h-fit items-center gap-2">
       <Icon name="game-icons:thor-hammer" class="text-primary text-lg" />
@@ -208,24 +208,32 @@ const difference = currentYear - 2020;
   </section>
   <section id="gallery" class="overflow-x-hidden flex flex-col gap-4">
     <div
-      class="flex w-full h-96 gap-8 justify-center -translate-x-52 galleryRow"
+      class="flex w-full h-96 max-md:h-52 gap-8 max-md:gap-2 justify-center -translate-x-52 max-md:-translate-x-32 galleryRow items-center"
     >
       {
         galleryImgs
           .slice(0, galleryImgs.length / 2)
           .map((img) => (
-            <Image src={img} alt="gallery" class="h-full object-contain w-52" />
+            <Image
+              src={img}
+              alt="gallery"
+              class="object-contain w-52 max-md:w-24 h-full"
+            />
           ))
       }
     </div>
     <div
-      class="flex w-full h-96 gap-8 justify-center translate-x-52 galleryRow"
+      class="flex w-full h-96 max-md:h-32 gap-8 max-md:gap-2 justify-center translate-x-52 max-md:translate-x-32 galleryRow items-center"
     >
       {
         galleryImgs
           .slice(galleryImgs.length / 2)
           .map((img) => (
-            <Image src={img} alt="gallery" class="h-full object-contain w-52" />
+            <Image
+              src={img}
+              alt="gallery"
+              class="object-contain w-52 max-md:w-24 h-full"
+            />
           ))
       }
     </div>
