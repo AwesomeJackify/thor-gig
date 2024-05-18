@@ -132,11 +132,10 @@ const Music = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const [audio] = useState(new Audio(melowdownz));
-  audio.loop = true;
-
   useEffect(() => {
     if (isPlaying) {
       audio.play();
+      audio.loop = true;
     } else {
       audio.pause();
     }
