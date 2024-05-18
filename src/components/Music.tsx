@@ -151,7 +151,10 @@ const Music = () => {
   };
 
   return (
-    <div onClick={handleOnClick} className="rounded-xl bg-slate-200">
+    <div
+      onClick={handleOnClick}
+      className="rounded-xl bg-slate-200 cursor-pointer"
+    >
       {isPlaying ? (
         <SvgSpinnersBarsScaleMiddlePlaying className="text-2xl p-2 w-12" />
       ) : (
