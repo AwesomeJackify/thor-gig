@@ -29,10 +29,7 @@ heroTextTimeline
       opacity: 1,
       stagger: 0.05,
     }
-  )
-  .to("#desktopNav", {
-    opacity: 1,
-  });
+  );
 
 let mjolnir;
 

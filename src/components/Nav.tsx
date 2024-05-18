@@ -7,22 +7,14 @@ const Nav = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   return (
-    <div className="text-white">
+    <div>
       <nav
         id="desktopNav"
-        className="navbar select-none opacity-0 absolute left-0 justify-between top-0 z-20 bg-base-100 bg-transparent max-md:hidden"
+        className="navbar select-none absolute bottom-0 right-24 w-fit justify-between z-20 bg-base-100 bg-transparent max-md:hidden text-black font-bold"
       >
-        <ul className="menu menu-horizontal px-1 invisible">
+        <ul className="menu menu-horizontal px-1 gap-4">
           {config.pages.slice(1).map((page) => (
-            <li key={page.name}>
-              <a href={page.url}>{page.name}</a>
-            </li>
-          ))}
-        </ul>
-        <h1 className="text-lg">{config.businessName}</h1>
-        <ul className="menu menu-horizontal px-1">
-          {config.pages.slice(1).map((page) => (
-            <li key={page.name}>
+            <li key={page.name} className="hover:text-primary transition">
               <a href={page.url}>{page.name}</a>
             </li>
           ))}

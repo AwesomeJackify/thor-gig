@@ -2,14 +2,19 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        yellowTail: ["yellowTail", "cursive"],
+      },
+    },
   },
   daisyui: {
     themes: [
       {
         cmyk: {
           ...require("daisyui/src/theming/themes")["cmyk"],
-          secondary: "#FEAC61",
+          primary: "#E02C2C",
+          secondary: "#01388A",
         },
       },
     ],
