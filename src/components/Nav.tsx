@@ -22,7 +22,7 @@ const Nav = () => {
       </nav>
       <nav
         id="mobileNav"
-        className={`fixed left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center bg-primary text-4xl transition-all ${
+        className={`fixed left-0 top-0 z-50 flex h-full w-full flex-col items-center justify-center bg-primary text-4xl transition-all ${
           showMobileNav ? "z-30 opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
