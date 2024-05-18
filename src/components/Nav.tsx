@@ -45,8 +45,8 @@ const Nav = () => {
             ? "line-md:menu-to-close-transition"
             : "line-md:close-to-menu-transition"
         }`}
-        className={`fixed bottom-2 left-1/2 z-[999] -translate-x-1/2 rounded-full bg-primary p-4 transition-all ${
-          showMobileNav ? "bg-secondary text-base-100" : "bg-base-100"
+        className={`fixed bottom-2 left-1/2 z-[999] text-white -translate-x-1/2 rounded-full p-4 transition-all ${
+          showMobileNav ? "bg-secondary" : "bg-primary"
         } text-4xl md:hidden`}
         onClick={() => setShowMobileNav(!showMobileNav)}
       />
