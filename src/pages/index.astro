@@ -25,7 +25,7 @@ import config from "@data/config.json";
     <div class="flex flex-col max-w-screen-lg relative h-full mx-auto p-4">
       <div
         id="boxLogo"
-        class="bg-primary uppercase text-white w-fit px-12 py-6 text-7xl flex flex-col gap-0 font-extrabold max-md:text-4xl max-md:p-2"
+        class="bg-primary uppercase opacity-0 -translate-x-[1000px] text-white w-fit px-12 py-6 text-7xl flex flex-col gap-0 font-extrabold max-md:text-4xl max-md:p-2"
       >
         <h1>thor & co</h1>
         <h1>building</h1>
@@ -34,11 +34,11 @@ import config from "@data/config.json";
         id="matthewImg"
         src={matthewImg}
         alt="matthew"
-        class="absolute bottom-0 max-md:-bottom-[10vh] right-12 w-[100vh] max-md:-left-1/2 max-w-none -scale-x-100 grayscale-[0.7]"
+        class="opacity-0 translate-x-[1000px] absolute bottom-0 max-md:-bottom-[10vh] right-12 w-[100vh] max-md:-left-1/2 max-w-none -scale-x-100 grayscale-[0.7]"
       />
       <h1
         id="localLegend"
-        class="text-center font-[yellowTail] uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-8 max-md:right-8 text-primary"
+        class="text-center font-[yellowTail] uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-8 max-md:right-8 text-primary opacity-0"
       >
         Local Legend of <br /> Avondale!
       </h1>
@@ -47,7 +47,7 @@ import config from "@data/config.json";
       >
         <div
           id="blurb"
-          class="flex flex-col gap-1 items-center font-extrabold uppercase w-fit leading-none"
+          class="flex flex-col gap-1 items-center font-extrabold uppercase w-fit leading-none -translate-x-[1000px] opacity-0"
         >
           <div class="bg-primary p-1 text-white text-2xl">Meet</div>
           <div class="flex flex-col items-center">
@@ -76,18 +76,20 @@ import config from "@data/config.json";
           <div
             class="flex flex-col uppercase text-white gap-1 text-sm font-extrabold"
           >
-            <h1 class="bg-black w-fit p-1 stat">Proud SAMON FAMILY MAN,</h1>
-            <h1 class="bg-black w-fit p-1 stat">
+            <h1 class="bg-black w-fit p-1 stat opacity-0 -translate-x-24">
+              Proud SAMON FAMILY MAN,
+            </h1>
+            <h1 class="bg-black w-fit p-1 stat opacity-0 -translate-x-24">
               Forging long last connections
             </h1>
-            <h1 class="bg-black w-fit p-1 stat">
+            <h1 class="bg-black w-fit p-1 stat opacity-0 -translate-x-24">
               to create a resilient community
             </h1>
           </div>
           <a
             id="heroContact"
             href="#contact"
-            class="uppercase hover:bg-secondary/90 transition-all font-extrabold bg-secondary text-white text-2xl p-4 w-fit"
+            class="uppercase opacity-0 translate-y-[1000px] hover:bg-secondary/90 transition-all font-extrabold bg-secondary text-white text-2xl p-4 w-fit"
             >Contact Me Today</a
           >
         </div>
@@ -264,46 +266,42 @@ import config from "@data/config.json";
   const heroTimeline = gsap.timeline({ delay: 0.5 });
 
   heroTimeline
-    .from("#boxLogo", {
-      x: -1000,
-      opacity: 0,
+    .to("#boxLogo", {
+      x: 0,
+      opacity: 1,
     })
-    .from(
+    .to(
       "#blurb",
       {
-        y: 1000,
-        opacity: 0,
+        x: 0,
+        opacity: 1,
       },
-      0
+      0.1
     )
-    .from(
+    .to(
       ".stat",
       {
-        x: -200,
-        opacity: 0,
+        x: 0,
+        opacity: 1,
         stagger: 0.2,
       },
       0.2
     )
-    .fromTo(
+    .to(
       "#heroContact",
-      {
-        opacity: 0,
-        y: 1000,
-      },
-      { y: 0, opacity: 1, ease: "bounce.out" },
+      { y: 0, opacity: 1, ease: "power3.out", duration: 0.5 },
       "0"
     )
-    .from(
+    .to(
       "#matthewImg",
       {
-        x: 1000,
-        opacity: 0,
+        x: 0,
+        opacity: 1,
         ease: "power3.out",
       },
-      0
+      0.2
     )
-    .from("#localLegend", {
-      opacity: 0,
+    .to("#localLegend", {
+      opacity: 1,
     });
 </script>
