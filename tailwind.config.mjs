@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        yellowTail: ["yellowTail", "cursive"],
+        Yellowtail: ["Yellowtail", "cursive"],
       },
     },
   },

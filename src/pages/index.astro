@@ -83,7 +83,7 @@ const difference = currentYear - 2020;
       />
       <h1
         id="localLegend"
-        class="text-center font-[yellowTail] max-md:text-primary uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-16 max-md:right-8 opacity-0"
+        class="text-center font-[Yellowtail] max-md:text-primary uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-16 max-md:right-8 opacity-0"
       >
         Local Legend of <br /> Avondale!
       </h1>
@@ -111,7 +111,7 @@ const difference = currentYear - 2020;
           <div class="w-[16rem] h-4 bg-primary"></div>
           <div class="w-fit py-4">
             <h1
-              class="font-[yellowTail] text-center uppercase font-light -rotate-6 text-lg text-primary"
+              class="font-[Yellowtail] text-center uppercase font-light -rotate-6 text-lg text-primary"
             >
               Strength of Thor <br /> Heart of Home!
             </h1>
@@ -185,6 +185,8 @@ const difference = currentYear - 2020;
         <Image
           src={storyImg3}
           alt="profile3"
+          widths={[240, 540, 720, storyImg3.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${storyImg3.width}px`}
           class="object-cover w-full h-full"
         />
       </div>
