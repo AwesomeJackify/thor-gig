@@ -70,7 +70,7 @@ const difference = currentYear - 2020;
     <div class="flex flex-col max-w-[900px] relative h-full mx-auto p-4">
       <div
         id="boxLogo"
-        class="bg-primary uppercase opacity-0 -translate-x-[1000px] text-white w-fit px-12 py-6 text-7xl flex flex-col gap-0 transition-all font-extrabold max-md:text-4xl max-md:p-2 hover:z-50"
+        class="bg-primary uppercase text-white w-fit px-12 py-6 text-7xl flex flex-col gap-0 transition-all font-extrabold max-md:text-4xl max-md:p-2 hover:z-50"
       >
         <h1>thor & co</h1>
         <h1>building</h1>
@@ -79,11 +79,13 @@ const difference = currentYear - 2020;
         id="matthewImg"
         src={matthewImg}
         alt="matthew"
-        class="pointer-events-none opacity-0 translate-x-[1000px] absolute bottom-0 max-md:-bottom-[10vh] w-[110vh] 2xl:w-[90vh] right-0 max-md:-left-1/2 max-w-none grayscale-[0.7] max-md:grayscale-[1]"
+        widths={[240, 540, 720, storyImg3.width]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${storyImg3.width}px`}
+        class="pointer-events-none absolute bottom-0 max-md:-bottom-[10vh] w-[110vh] 2xl:w-[90vh] right-0 max-md:-left-1/2 max-w-none grayscale-[0.7] max-md:grayscale-[1]"
       />
       <h1
         id="localLegend"
-        class="text-center font-[Yellowtail] max-md:text-primary uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-16 max-md:right-8 opacity-0"
+        class="text-center font-[Yellowtail] max-md:text-primary uppercase font-light rotate-12 absolute top-8 right-8 text-2xl max-md:text-xs max-md:top-16 max-md:right-8"
       >
         Local Legend of <br /> Avondale!
       </h1>
@@ -92,7 +94,7 @@ const difference = currentYear - 2020;
       >
         <div
           id="blurb"
-          class="flex flex-col gap-1 items-center font-extrabold uppercase w-fit leading-none -translate-x-[1000px] opacity-0"
+          class="flex flex-col gap-1 items-center font-extrabold uppercase w-fit leading-none"
         >
           <div class="bg-primary p-1 text-white text-2xl">Meet</div>
           <div class="flex flex-col items-center">
@@ -121,20 +123,18 @@ const difference = currentYear - 2020;
           <div
             class="flex flex-col uppercase text-white gap-1 text-sm font-extrabold"
           >
-            <h1 class="bg-black w-fit p-1 stat opacity-0 -translate-x-24">
-              Proud SAMON FAMILY MAN,
-            </h1>
-            <h1 class="bg-black w-fit p-1 stat opacity-0 -translate-x-24">
+            <h1 class="bg-black w-fit p-1 stat">Proud SAMON FAMILY MAN,</h1>
+            <h1 class="bg-black w-fit p-1 stat">
               Forging long last connections
             </h1>
-            <h1 class="bg-black w-fit p-1 stat opacity-0 -translate-x-24">
+            <h1 class="bg-black w-fit p-1 stat">
               to create a resilient community
             </h1>
           </div>
           <a
             id="heroContact"
             href="#contact"
-            class="uppercase opacity-0 translate-y-[1000px] hover:bg-secondary/90 transition-all font-extrabold bg-secondary text-white text-2xl p-4 w-fit"
+            class="uppercase hover:bg-secondary/90 transition-all font-extrabold bg-secondary text-white text-2xl p-4 w-fit"
             >Contact Me Today</a
           >
         </div>
@@ -142,6 +142,8 @@ const difference = currentYear - 2020;
       <Image
         id="barcode"
         src={barcodeImg}
+        widths={[64, 720, storyImg3.width]}
+        sizes={`(max-width: 720px) 64px, (max-width: 1600px) 720px, ${storyImg3.width}px`}
         alt="barcode"
         class="absolute bottom-4 right-4 w-16 contrast-75"
       />
@@ -363,45 +365,45 @@ const difference = currentYear - 2020;
 
   const heroTimeline = gsap.timeline({ delay: 0.5 });
 
-  heroTimeline
-    .to("#boxLogo", {
-      x: 0,
-      opacity: 1,
-    })
-    .to(
-      "#blurb",
-      {
-        x: 0,
-        opacity: 1,
-      },
-      0.1
-    )
-    .to(
-      ".stat",
-      {
-        x: 0,
-        opacity: 1,
-        stagger: 0.2,
-      },
-      0.2
-    )
-    .to(
-      "#heroContact",
-      { y: 0, opacity: 1, ease: "power3.out", duration: 0.5 },
-      "0"
-    )
-    .to(
-      "#matthewImg",
-      {
-        x: 0,
-        opacity: 1,
-        ease: "power3.out",
-      },
-      0.2
-    )
-    .to("#localLegend", {
-      opacity: 1,
-    });
+  // heroTimeline
+  //   .to("#boxLogo", {
+  //     x: 0,
+  //     opacity: 1,
+  //   })
+  //   .to(
+  //     "#blurb",
+  //     {
+  //       x: 0,
+  //       opacity: 1,
+  //     },
+  //     0.1
+  //   )
+  //   .to(
+  //     ".stat",
+  //     {
+  //       x: 0,
+  //       opacity: 1,
+  //       stagger: 0.2,
+  //     },
+  //     0.2
+  //   )
+  //   .to(
+  //     "#heroContact",
+  //     { y: 0, opacity: 1, ease: "power3.out", duration: 0.5 },
+  //     "0"
+  //   )
+  //   .to(
+  //     "#matthewImg",
+  //     {
+  //       x: 0,
+  //       opacity: 1,
+  //       ease: "power3.out",
+  //     },
+  //     0.2
+  //   )
+  //   .to("#localLegend", {
+  //     opacity: 1,
+  //   });
 
   gsap.to(".galleryRow", {
     scrollTrigger: {
