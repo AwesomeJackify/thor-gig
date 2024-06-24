@@ -112,7 +112,7 @@ const difference = currentYear - 2020;
           </div>
           <div class="w-[16rem] h-4 bg-primary"></div>
           <div class="flex items-center">
-            <h1 class="text-[4rem]">{Math.min(difference, 9)}+</h1>
+            <h1 class="text-[3.3rem]">10+</h1>
             <div class="flex flex-col justify-center items-center">
               <h1 class="text-[3rem]">years</h1>
               <h1 class="text-[1.6rem]">experience</h1>
@@ -377,7 +377,24 @@ const difference = currentYear - 2020;
     lenis.scrollTo("#contact", { duration: 2 });
   });
 
-  // const heroTimeline = gsap.timeline({ delay: 0.5 });
+  const heroImgTimeline = gsap.timeline({ paused: true });
+
+  // const heroImage = document.getElementById("matthewImg") as HTMLImageElement;
+  // if (!heroImage.complete) {
+  //   heroImage?.addEventListener("load", () => {
+  //     heroImgTimeline.play();
+  //   });
+  // } else {
+  //   heroImgTimeline.play();
+  // }
+
+  // heroImgTimeline.from("#matthewImg", {
+  //   x: 100,
+  //   opacity: 0,
+  //   ease: "power3.out",
+  // });
+
+  // const heroTimeline = gsap.timeline({ delay: 0.5, paused: true });
 
   // heroTimeline
   //   .to("#boxLogo", {
